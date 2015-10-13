@@ -1,12 +1,15 @@
 import Reflux from 'reflux';
 import $ from 'jquery';
-import ImageActions from '../actions/ImageActions';
+import ImageAction from '../actions/ImageAction';
 
 let ImageStore = Reflux.createStore({
 	'url':'https://api.flickr.com/services/feeds/photos_public.gne?format=json',
-	'listenables':[ImageActions],
+	'listenables':[ImageAction],
 	'imageList' : [],
-	'fetchList': function(){
+	'init' : function() {
+		this.fetchList();
+	},
+	'fetchList': function() {
 		let tags = [ 'music', 'animals', 'food', 'sport' ];
 		let randomTag = tags[Math.floor(Math.random()*tags.length)];
 		$.ajax({
@@ -24,4 +27,4 @@ let ImageStore = Reflux.createStore({
 	}
 });
 
-exports default ImageStores;
+export default ImageStore;

@@ -5,8 +5,13 @@
   "license": "MIT",
   "repository": "https://github.com/danivegamx/flux-example",
   "dependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
     "jquery": "^2.1.4",
     "react": "^0.13.0",
     "reflux": "^0.2.12"
+  },
+  "scripts": {
+    "build": "browserify -t babelify app.js > build.js"
   }
 }
